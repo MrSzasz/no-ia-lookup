@@ -1,0 +1,25 @@
+{
+  "name": "no-ia-lookup",
+  "version": "1.0.0",
+  "description": "Browser extension that filters AI content from Google Search results",
+  "private": true,
+  "homepage": "https://github.com/MrSzasz/no-ia-lookup#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MrSzasz/no-ia-lookup.git"
+  },
+  "bugs": {
+    "url": "https://github.com/MrSzasz/no-ia-lookup/issues"
+  },
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc --watch",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "devDependencies": {
+    "@types/chrome": "^0.0.320",
+    "typescript": "^5.8.3",
+    "vitest": "^3.1.4"
+  }
+}

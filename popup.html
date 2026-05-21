@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="styles/popup.css">
+</head>
+
+<body>
+
+  <div class="header">
+    <img src="icons/icon48.png" alt="icon">
+    <div>
+      <div class="title">No<span>IA</span> Lookup</div>
+      <div class="subtitle">Google search filter</div>
+    </div>
+  </div>
+
+  <div class="main">
+
+    <div class="card active" id="card">
+      <div class="card-left">
+        <span class="card-label">Status</span>
+        <span class="card-value active" id="statusText">Active</span>
+      </div>
+      <div class="dot active" id="dot"></div>
+    </div>
+
+    <div class="row" id="rowMain">
+      <span class="row-label">Enable extension</span>
+      <label class="switch lg">
+        <input type="checkbox" id="toggleMain" checked>
+        <div class="track"></div>
+        <div class="thumb"></div>
+      </label>
+    </div>
+
+    <div class="divider"></div>
+    <span class="section-label">Filters</span>
+
+    <div class="row" id="rowIa">
+      <div class="row-info">
+        <span class="row-label">Append <code style="color:#666;font-size:11px">-"ia"</code></span>
+        <span class="row-desc">Excludes IA from query results</span>
+      </div>
+      <label class="switch sm">
+        <input type="checkbox" id="toggleIa" checked>
+        <div class="track"></div>
+        <div class="thumb"></div>
+      </label>
+    </div>
+
+    <div class="row" id="rowUdm">
+      <div class="row-info">
+        <span class="row-label">Web results only</span>
+        <span class="row-desc">Removes Google AI Overview</span>
+      </div>
+      <label class="switch sm">
+        <input type="checkbox" id="toggleUdm" checked>
+        <div class="track"></div>
+        <div class="thumb"></div>
+      </label>
+    </div>
+
+    <div class="row" id="rowSnippet">
+      <div class="row-info">
+        <span class="row-label">Hide featured snippet</span>
+        <span class="row-desc">Removes the top answer box</span>
+      </div>
+      <label class="switch sm">
+        <input type="checkbox" id="toggleSnippet" checked>
+        <div class="track"></div>
+        <div class="thumb"></div>
+      </label>
+    </div>
+
+  </div>
+
+  <div class="footer">NoIA Lookup &mdash; v1.0.0</div>
+
+  <script src="src/popup.js"></script>
+</body>
+
+</html>

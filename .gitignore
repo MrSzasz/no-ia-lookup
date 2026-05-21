@@ -1,0 +1,5 @@
+node_modules/
+*.zip
+src/background.js
+src/popup.js
+lib/*.js

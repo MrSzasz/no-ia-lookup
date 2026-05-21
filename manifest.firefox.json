@@ -1,0 +1,33 @@
+{
+  "manifest_version": 3,
+  "name": "NoIA Lookup",
+  "description": "Appends \"-ia\" to every Google search to filter AI results",
+  "version": "1.0.0",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "noialookup@noialookup",
+      "strict_min_version": "109.0"
+    }
+  },
+  "permissions": ["webNavigation", "tabs", "scripting", "storage"],
+  "host_permissions": ["<all_urls>"],
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "NoIA Lookup",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "background": {
+    "scripts": ["src/background.js"]
+  }
+}
