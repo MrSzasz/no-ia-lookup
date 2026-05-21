@@ -7,7 +7,7 @@ const GOOGLE_AR = "https://www.google.com.ar/search?q=typescript";
 
 describe("applyFilters", () => {
   describe("ia filter", () => {
-    it('appends -"ia" to a plain query', () => {
+    it('appends -"ai" to a plain query', () => {
       const result = applyFilters(
         GOOGLE_SEARCH,
         { useIaFilter: true, useUdm: false },
@@ -16,12 +16,12 @@ describe("applyFilters", () => {
 
       expect(result.modified).toBe(true);
       expect(new URL(result.url).searchParams.get("q")).toBe(
-        `typescript -"ia"`,
+        `typescript -"ai"`,
       );
     });
 
-    it('does not append -"ia" if already present', () => {
-      const url = `https://www.google.com/search?q=typescript+-"ia"`;
+    it('does not append -"ai" if already present', () => {
+      const url = `https://www.google.com/search?q=typescript+-"ai"`;
       const result = applyFilters(
         url,
         { useIaFilter: true, useUdm: false },
@@ -31,7 +31,7 @@ describe("applyFilters", () => {
       expect(result.modified).toBe(false);
     });
 
-    it('skips redirect when the user removed -"ia" manually', () => {
+    it('skips redirect when the user removed -"ai" manually', () => {
       const result = applyFilters(
         GOOGLE_SEARCH,
         { useIaFilter: true, useUdm: false },
@@ -99,7 +99,7 @@ describe("applyFilters", () => {
   });
 
   describe("both filters combined", () => {
-    it('applies both udm=14 and -"ia" in one pass', () => {
+    it('applies both udm=14 and -"ai" in one pass', () => {
       const result = applyFilters(
         GOOGLE_SEARCH,
         { useIaFilter: true, useUdm: true },
@@ -111,7 +111,7 @@ describe("applyFilters", () => {
       const resultUrl = new URL(result.url);
 
       expect(resultUrl.searchParams.get("udm")).toBe("14");
-      expect(resultUrl.searchParams.get("q")).toBe(`typescript -"ia"`);
+      expect(resultUrl.searchParams.get("q")).toBe(`typescript -"ai"`);
     });
   });
 
@@ -149,7 +149,7 @@ describe("applyFilters", () => {
       );
 
       expect(new URL(result.url).searchParams.get("q")).toBe(
-        `typescript -"ia"`,
+        `typescript -"ai"`,
       );
     });
 
@@ -161,7 +161,7 @@ describe("applyFilters", () => {
       );
 
       expect(new URL(result.url).searchParams.get("q")).toBe(
-        `typescript -"ia"`,
+        `typescript -"ai"`,
       );
     });
 

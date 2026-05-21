@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
   "name": "NoIA Lookup",
-  "description": "Appends \"-ia\" to every Google search to filter AI results",
-  "version": "1.0.0",
+  "description": "Appends \"-ai\" to every Google search to filter AI results",
+  "version": "1.1.0",
   "browser_specific_settings": {
     "gecko": {
       "id": "noialookup@noialookup",

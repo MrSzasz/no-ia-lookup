@@ -1,6 +1,6 @@
 {
   "name": "no-ia-lookup",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Browser extension that filters AI content from Google Search results",
   "private": true,
   "homepage": "https://github.com/MrSzasz/no-ia-lookup#readme",

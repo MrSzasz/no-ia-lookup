@@ -41,7 +41,7 @@ chrome.storage.onChanged.addListener(
   },
 );
 
-// Track the last redirected query per tab to respect manual removal of -"ia"
+// Track the last redirected query per tab to respect manual removal of -"ai"
 const pendingRedirectByTab = new Map<number, string>();
 
 // Listen for before navigation events
@@ -70,13 +70,13 @@ chrome.webNavigation.onBeforeNavigate.addListener(
     }
 
     if (useIaFilter) {
-      if (!query.endsWith(` -"ia"`)) {
+      if (!query.endsWith(` -"ai"`)) {
         if (pendingRedirectByTab.get(details.tabId) === query) {
-          // User manually removed -"ia" — respect it and clear the skip entry
+          // User manually removed -"ai" — respect it and clear the skip entry
           pendingRedirectByTab.delete(details.tabId);
         } else {
           pendingRedirectByTab.set(details.tabId, query);
-          url.searchParams.set("q", query + ` -"ia"`);
+          url.searchParams.set("q", query + ` -"ai"`);
           shouldRedirect = true;
         }
       }

@@ -2,18 +2,18 @@
 
 Browser extension for **Chromium** and **Firefox** that automatically filters AI-generated content from Google Search results.
 
-It appends `-"ia"` to your searches, forces web-only results, and hides the featured snippet — all configurable from the popup.
+It appends `-"ai"` to your searches, forces web-only results, and hides the featured snippet — all configurable from the popup.
 
 ---
 
 ## Features
 
-- **Appends `-"ia"`** to every Google search query to exclude results containing the word *ia* (Spanish for AI / IA)
+- **Appends `-"ai"`** to every Google search query to exclude results containing the word *ia* (Spanish for AI / IA)
 - **Forces web-only results** via `udm=14`, removing Google AI Overview entirely
 - **Hides the featured snippet** box at the top of search results
 - Works on **all Google domains** — `.google.com`, `.google.es`, `.google.com.ar`, `.google.co.uk`, etc.
 - Works from the **address bar** and from `google.com` directly
-- **Respects manual removal** — if you delete `-"ia"` from a query, it won't be re-added
+- **Respects manual removal** — if you delete `-"ai"` from a query, it won't be re-added
 - **Skips Google Images** — searches with `tbm=isch` are left untouched
 - Each filter is **independently toggleable** from the popup
 - The extension can be fully **paused** without uninstalling
@@ -52,7 +52,7 @@ It appends `-"ia"` to your searches, forces web-only results, and hides the feat
 
 | Filter | Default | Description |
 | --- | --- | --- |
-| **Append `-"ia"`** | On | Appends `-"ia"` to the search query. The quoted form excludes exact matches of the word *ia*, which is less aggressive than the unquoted `-ia` operator and avoids triggering Google's spell-checker. |
+| **Append `-"ai"`** | On | Appends `-"ai"` to the search query. The quoted form excludes exact matches of the word *ia*, which is less aggressive than the unquoted `-ia` operator and avoids triggering Google's spell-checker. |
 | **Web results only** | On | Adds `udm=14` to the URL, which forces Google to show only traditional web results and removes the AI Overview panel. |
 | **Hide featured snippet** | On | Injects CSS before the page renders to hide the `.ULSxyf` container that wraps the featured answer box. Injected at `onCommitted` to prevent the box from flashing in before disappearing. |
 
@@ -66,11 +66,11 @@ The extension uses Manifest V3 APIs with no content scripts — all logic runs i
 
 ### URL interception
 
-`chrome.webNavigation.onBeforeNavigate` fires before a navigation commits. When a Google search is detected, the extension modifies the URL (adding `udm=14` and/or `-"ia"`) and calls `chrome.tabs.update` to redirect the tab to the modified URL.
+`chrome.webNavigation.onBeforeNavigate` fires before a navigation commits. When a Google search is detected, the extension modifies the URL (adding `udm=14` and/or `-"ai"`) and calls `chrome.tabs.update` to redirect the tab to the modified URL.
 
 ### Skip logic
 
-When the extension redirects a search, it stores the original query in a `Map<tabId, query>`. If the next navigation for that tab has the same query *without* `-"ia"`, it means the user manually removed it — the extension respects this and skips the redirect.
+When the extension redirects a search, it stores the original query in a `Map<tabId, query>`. If the next navigation for that tab has the same query *without* `-"ai"`, it means the user manually removed it — the extension respects this and skips the redirect.
 
 ### Featured snippet hiding
 

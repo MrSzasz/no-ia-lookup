@@ -26,13 +26,13 @@ export const applyFilters = (
   }
 
   if (options.useIaFilter) {
-    if (!query.endsWith(` -"ia"`)) {
-      // If the user previously removed -"ia" from this exact query, skip
+    if (!query.endsWith(` -"ai"`)) {
+      // If the user previously removed -"ai" from this exact query, skip
       if (pendingRedirectQuery === query) {
         return { url: rawUrl, modified: false };
       }
 
-      url.searchParams.set("q", query + ` -"ia"`);
+      url.searchParams.set("q", query + ` -"ai"`);
       modified = true;
     }
   }
