@@ -1,4 +1,4 @@
-# NoIA Lookup
+# NoAI Lookup
 
 Browser extension for **Chromium** and **Firefox** that automatically filters AI-generated content from Google Search results.
 

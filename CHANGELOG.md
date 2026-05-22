@@ -1,6 +1,14 @@
 # Changelog
 
-All notable changes to NoIA Lookup are documented here.
+All notable changes to NoAI Lookup are documented here.
+
+---
+
+## [1.1.1] — 2026-05-21
+
+### Changed
+
+- Renamed extension from "NoIA Lookup" to "NoAI Lookup"
 
 ---
 
