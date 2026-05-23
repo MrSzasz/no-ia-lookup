@@ -1,3 +1,6 @@
+<img width="440" height="280" alt="small" src="https://github.com/user-attachments/assets/0a68a111-aeab-4e3d-834c-6fa8ab4e907f" />
+
+
 # NoAI Lookup
 
 Browser extension for **Chromium** and **Firefox** that automatically filters AI-generated content from Google Search results.
