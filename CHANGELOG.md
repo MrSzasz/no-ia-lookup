@@ -4,6 +4,14 @@ All notable changes to NoAI Lookup are documented here.
 
 ---
 
+## [1.1.2] — 2026-05-22
+
+### Changed
+
+- Replaced `<all_urls>` host permission with an explicit list of 42 Google country domains to reduce review scope and follow Chrome Web Store best practices
+
+---
+
 ## [1.1.1] — 2026-05-21
 
 ### Changed
