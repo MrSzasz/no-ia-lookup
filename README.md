@@ -11,7 +11,7 @@ It appends `-"ai"` to your searches, forces web-only results, and hides the feat
 
 ## Features
 
-- **Appends `-"ai"`** to every Google search query to exclude results containing the word *ia* (Spanish for AI / IA)
+- **Appends `-"ai"`** to every Google search query to exclude results containing the word *ai*
 - **Forces web-only results** via `udm=14`, removing Google AI Overview entirely
 - **Hides the featured snippet** box at the top of search results
 - Works on **all Google domains** — `.google.com`, `.google.es`, `.google.com.ar`, `.google.co.uk`, etc.
@@ -31,7 +31,7 @@ It appends `-"ai"` to your searches, forces web-only results, and hides the feat
 
 #### Manual installation
 
-1. Download `EXT_noialookup.zip` from the [Releases](https://github.com/MrSzasz/no-ia-lookup/releases) page
+1. Download `noialookup.zip` from the [Releases](https://github.com/MrSzasz/no-ia-lookup/releases) page
 2. Extract the ZIP to a folder
 3. Go to `chrome://extensions/`
 4. Enable **Developer mode** (toggle in the top-right corner)
@@ -43,11 +43,11 @@ It appends `-"ai"` to your searches, forces web-only results, and hides the feat
 
 #### Manual (temporary) installation
 
-1. Download `EXT_noialookup_firefox.zip` from the [Releases](https://github.com/MrSzasz/no-ia-lookup/releases) page
+1. Download `noialookup-firefox.zip` from the [Releases](https://github.com/MrSzasz/no-ia-lookup/releases) page
 2. Go to `about:debugging`
 3. Click **This Firefox**
 4. Click **Load Temporary Add-on**
-5. Select the `EXT_noialookup_firefox.zip` file directly
+5. Select the `noialookup-firefox.zip` file directly
 
 ---
 
@@ -55,7 +55,7 @@ It appends `-"ai"` to your searches, forces web-only results, and hides the feat
 
 | Filter | Default | Description |
 | --- | --- | --- |
-| **Append `-"ai"`** | On | Appends `-"ai"` to the search query. The quoted form excludes exact matches of the word *ia*, which is less aggressive than the unquoted `-ia` operator and avoids triggering Google's spell-checker. |
+| **Append `-"ai"`** | On | Appends `-"ai"` to the search query. The quoted form excludes exact matches of the word *ai*, which is less aggressive than the unquoted `-ia` operator and avoids triggering Google's spell-checker. |
 | **Web results only** | On | Adds `udm=14` to the URL, which forces Google to show only traditional web results and removes the AI Overview panel. |
 | **Hide featured snippet** | On | Injects CSS before the page renders to hide the `.ULSxyf` container that wraps the featured answer box. Injected at `onCommitted` to prevent the box from flashing in before disappearing. |
 
