@@ -146,7 +146,6 @@ no-ia-lookup/
 | Permission | Why |
 | --- | --- |
 | `webNavigation` | Listen to navigation events to detect Google searches |
-| `tabs` | Redirect the tab to the modified search URL |
 | `scripting` | Inject CSS to hide the featured snippet |
 | `storage` | Persist filter settings across browser sessions |
 | `host_permissions` (Google domains) | Required by `scripting` to inject CSS on Google pages. Scoped to 42 specific Google country domains instead of `<all_urls>`. |

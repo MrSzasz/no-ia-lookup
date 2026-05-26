@@ -4,6 +4,14 @@ All notable changes to NoAI Lookup are documented here.
 
 ---
 
+## [1.1.3] — 2026-05-26
+
+### Changed
+
+- Removed `tabs` permission — it is not required for `chrome.tabs.update`; host permissions are sufficient
+
+---
+
 ## [1.1.2] — 2026-05-22
 
 ### Changed
