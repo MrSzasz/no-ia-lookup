@@ -4,6 +4,14 @@ All notable changes to NoAI Lookup are documented here.
 
 ---
 
+## [1.1.4] — 2026-05-28
+
+### Fixed
+
+- Settings are now read from storage before any navigation is processed, preventing the service worker from applying default filters (all enabled) when it restarts after the browser opens
+
+---
+
 ## [1.1.3] — 2026-05-26
 
 ### Changed

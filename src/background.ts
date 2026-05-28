@@ -4,24 +4,20 @@ let useIaFilter: boolean = true;
 let useUdm: boolean = true;
 let useSnippetFilter: boolean = true;
 
-// Get the settings from the storage
-chrome.storage.local.get(
-  ["enabled", "useIaFilter", "useUdm", "useSnippetFilter"],
-  (stored: Partial<Settings>) => {
-    if (stored.enabled !== undefined) {
-      enabled = stored.enabled;
-    }
-    if (stored.useIaFilter !== undefined) {
-      useIaFilter = stored.useIaFilter;
-    }
-    if (stored.useUdm !== undefined) {
-      useUdm = stored.useUdm;
-    }
-    if (stored.useSnippetFilter !== undefined) {
-      useSnippetFilter = stored.useSnippetFilter;
-    }
-  },
-);
+// Resolves once storage has been read — listeners await this before acting
+// to avoid using stale defaults when the service worker restarts mid-navigation.
+const settingsReady = new Promise<void>((resolve) => {
+  chrome.storage.local.get(
+    ["enabled", "useIaFilter", "useUdm", "useSnippetFilter"],
+    (stored: Partial<Settings>) => {
+      if (stored.enabled !== undefined) enabled = stored.enabled;
+      if (stored.useIaFilter !== undefined) useIaFilter = stored.useIaFilter;
+      if (stored.useUdm !== undefined) useUdm = stored.useUdm;
+      if (stored.useSnippetFilter !== undefined) useSnippetFilter = stored.useSnippetFilter;
+      resolve();
+    },
+  );
+});
 
 // Listen for changes to the settings
 chrome.storage.onChanged.addListener(
@@ -46,7 +42,9 @@ const pendingRedirectByTab = new Map<number, string>();
 
 // Listen for before navigation events
 chrome.webNavigation.onBeforeNavigate.addListener(
-  (details: chrome.webNavigation.WebNavigationParentedCallbackDetails) => {
+  async (details: chrome.webNavigation.WebNavigationParentedCallbackDetails) => {
+    await settingsReady;
+
     if (details.frameId !== 0) {
       return;
     }
@@ -91,7 +89,9 @@ chrome.webNavigation.onBeforeNavigate.addListener(
 
 // CSS injected at onCommitted (before the page renders) to prevent featured snippet flash
 chrome.webNavigation.onCommitted.addListener(
-  (details: chrome.webNavigation.WebNavigationTransitionCallbackDetails) => {
+  async (details: chrome.webNavigation.WebNavigationTransitionCallbackDetails) => {
+    await settingsReady;
+
     if (details.frameId !== 0 || !enabled || !useSnippetFilter) {
       return;
     }
